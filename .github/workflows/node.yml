@@ -1,0 +1,16 @@
+name: NASA Project CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      #     This action checks-out your repository under $GITHUB_WORKSPACE, so your workflow can access it.
+      - uses: actions/checkout
+#  deploy:
+##    ensure build first ,then deploy
+#    needs: build
