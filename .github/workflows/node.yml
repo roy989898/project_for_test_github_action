@@ -10,7 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       #     This action checks-out your repository under $GITHUB_WORKSPACE, so your workflow can access it.
-      - uses: actions/checkout
+      - uses: actions/checkout@v2
+      - name: Use Nodejs version 16
+        uses: actions/setup-node@v2
+        #        set the node version
+        with:
+          node-version: '16'
+      - run: npm install
+      #        build the frontend
+      - run: npm run build --prefix client
 #  deploy:
 ##    ensure build first ,then deploy
 #    needs: build
